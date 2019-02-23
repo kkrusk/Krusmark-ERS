@@ -1,0 +1,453 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>Krusmark | Dashboard</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="desription" content="">
+        <meta name="author" content="">
+
+        <link rel="icon" type="image/png" href="./img/favicon.ico" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/dash.css">
+
+        <!-- Importing fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|Open+Sans" rel="stylesheet">
+
+        <!-- Importing JS files -->
+        <!-- Bootstrap related JS files -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+        <script src="./js/datetime.js"></script>
+        <script src="./js/testThings.js"></script>
+    </head>
+    <body id="page-top" onload="datetime('curdt'), loadCharts(); loadTable('datatable.xml');">
+
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top" id="mainNav">
+            <div class="container background-container">
+                <!-- Brand -->
+                <a class="navbar-brand logo" href="#page-top">KRUSMARK</a>
+
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <code>ers_users.ers_username</code>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Stuff</a>
+                                <a class="dropdown-item" href="#">Moar stuff</a>
+                                <a class="dropdown-item" href="#">Dope stuff</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Next level stuff..ing</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="jumbotron" style="margin-bottom: 0;">
+            <div class="container extrapadding">
+                <h1 class="display-4">WELCOME &lt;user&gt;</h1>
+                <p class="h5">
+                    The current <code>date</code> and <code>time</code> is: 
+                    <samp><span id="curdt"></span></samp>
+                    <!--                            <script type="text/javascript">window.onload = datetime('curdt');</script>-->
+
+                </p>
+            </div>
+        </div>
+
+        <div class="container-fluid" style="background-color: #e9ecef;">
+            <div class="container">
+        <ul class="nav nav-tabs colormod">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#status">Status</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#submit">Submit</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        <div class="container background-container">
+
+            
+
+            <!--
+<div id="stopper" class="container">
+<h1>stop here</h1>
+</div>
+-->
+            <div class="tab-content">
+                <div id="status" class="tab-pane active container">
+                    <div class="container extrapadding">
+<!--                        <h1>Experimental stuff: <strong>Dashboard??</strong></h1>-->
+
+                        <section class="row text-center placeholders">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-auto">
+                                        <canvas id="webchart" class="doughnutstuffing" height="400"></canvas>
+                                    </div>
+                                    <div class="col">
+                                        <canvas id="barchart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <div class="table-responsive extrapadding">
+                            <table id="datatable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th><h1>select * from someTable</h1></th>
+                                    </tr>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Head</th>
+                                        <th>Head</th>
+                                        <th>Head</th>
+                                        <th>Head</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>so</td>
+                                        <td>much</td>
+                                        <td>much</td>
+                                        <td>stuff</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>so</td>
+                                        <td>much</td>
+                                        <td>much</td>
+                                        <td>stuff</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>so</td>
+                                        <td>much</td>
+                                        <td>much</td>
+                                        <td>stuff</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>so</td>
+                                        <td>much</td>
+                                        <td>much</td>
+                                        <td>stuff</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>so</td>
+                                        <td>much</td>
+                                        <td>much</td>
+                                        <td>stuff</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>so</td>
+                                        <td>much</td>
+                                        <td>much</td>
+                                        <td>stuff</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUBMISSION FORM -->
+                <div id="submit" class="tab-pane container">
+                    <div class="container extrapadding">
+                        <h1 class>Reimbursement Submission</h1>
+                        <div class="extrapadding">
+                            <form action="http://jkorpela.fi/cgi-bin/echo.cgi" method="post">
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control-plaintext" readonly name="fname" id="fname" placeholder="John Doe">
+                                    </div>
+                                    <div class="col">
+                                        <label for="email">Email:</label>
+                                        <input type="email" class="form-control-plaintext" readonly name="email" id="email" placeholder="JohnDoe@email.ext">
+                                    </div>                                    
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <label for="name">Amount:</label>
+                                        <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="amount">
+                                    </div>
+                                    <div class="col">
+                                        <label for="sel1">Type:</label>
+                                        <select class="form-control" id="type">
+                                            <option>Lodging</option>
+                                            <option>Travel</option>
+                                            <option>Food</option>
+                                            <option>Other</option>
+                                        </select>         
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Description:</label>
+                                    <textarea class="form-control" rows="6" name="description" id="description" placeholder="Booze and strippers!"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="uploadfile">Reciept (Optional):</label>
+                                    <input type="file" class="form-control" name="reciept" id="reciept">
+                                </div>
+                                <div class="form-group extrapadding">
+                                    <button type="submit" class="btn btn-default" name="submit" id="submit">Send</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Haha, <strong>you</strong> found me!</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+                    <div class="modal-body">
+                        <p><img src="./img/gandalf.gif" width=100%></p>
+                        <p>unless you <strong>enter your user information</strong></p>
+                        <br />
+                        <form action="http://jkorpela.fi/cgi-bin/echo.cgi" method="post">
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="email@email.com"> 
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" name="password" id="pwd" placeholder="Password">
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox"> Remember me</label>
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>   
+
+
+        <footer>
+            <div class="container">
+                <p style="padding-top: 4rem;font-size: 0.7em;">&copy; Krusmark 2017-2018</p>
+            </div>
+        </footer> 
+
+        <!-- Graphs -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+        <script> 
+            var arrNames, arrApproved, arrPending, arrDenied;
+
+            function loadCharts() {
+                var xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        genCharts(this);
+                    } 
+                };
+
+                xhttp.open("GET", "report.xml", true);  
+                xhttp.send();
+            }
+
+            function loadTable(file) {
+                var xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        genTable(this);
+                    } 
+                };
+
+                xhttp.open("GET", file, true);  
+                xhttp.send();
+            }
+
+            function genCharts(xml) {   
+                var x, i, txt, xmlDoc;  
+
+                xmlDoc = xml.responseXML;
+                x = xmlDoc.getElementsByTagName("row");
+
+                arrNames = new Array(x.length);
+                for (i = 0; i < x.length; i++) {
+                    arrNames[i] = x[i].childNodes[1].childNodes[0].nodeValue
+                }
+
+                arrPending = new Array(x.length);
+                for (i = 0; i < x.length; i++) {
+                    arrPending[i] = x[i].childNodes[3].childNodes[0].nodeValue
+                }
+                arrApproved = new Array(x.length);
+                for (i = 0; i < x.length; i++) {
+                    arrApproved[i] = x[i].childNodes[5].childNodes[0].nodeValue
+                }
+                arrDenied = new Array(x.length);
+                for (i = 0; i < x.length; i++) {
+                    arrDenied[i] = x[i].childNodes[7].childNodes[0].nodeValue
+                } 
+
+                var posR = document.getElementById("webchart");
+                var posB = document.getElementById("barchart");
+
+                // --myblue: rgb(41,128,185);
+                // --cyanide: rgb(52,152,219);
+                // --cloudyblue: rgb(236,240,241);
+                // --juicyorange: rgb(231,76,60);
+                // --block: rgb(44,62,80);
+
+                var data = {
+                    labels: arrNames,
+                    datasets: [{
+                        label: "Approved",
+                        fill: true,
+                        backgroundColor: "rgba(52,152,219,1)",
+                        borderColor: "rgba(52,152,219,1)",
+                        pointBackgroundColor: "rgba(52,152,219,1)",
+                        data: arrApproved
+                    }, {
+                        label: "Denied",
+                        fill: true,
+                        backgroundColor: "rgba(231,76,60,1)",
+                        borderColor: "rgba(231,76,60,1)",
+                        pointBackgroundColor: "rgba(231,76,60,1)",
+                        data: arrDenied
+                    }, {
+                        label: "Pending",
+                        fill: true,
+                        backgroundColor: "rgba(44,62,80,1)",
+                        borderColor: "rgba(44,62,80,1)",
+                        pointBackgroundColor: "rgba(44,62,80,1)",
+                        data: arrPending
+                    }]
+                };
+
+                var i;
+                var app = 0;
+                var den = 0;
+                var pen = 0;
+
+                for (val in data.datasets["0"].data)
+                    app += data.datasets["0"].data[val];
+
+                for (val in data.datasets["1"].data)
+                    den += data.datasets["1"].data[val];
+
+                for (val in data.datasets["2"].data)
+                    pen += data.datasets["2"].data[val];
+
+                // alert("approved: " + app + ", denied: " + den + ", pending: " + pen);
+
+                var sumdata = {
+                    labels: ['Approved','Denied','Pending'],
+                    datasets: [{
+                        data: [app,den,pen],
+                        backgroundColor: ["rgba(52,152,219,1)", "rgba(231,76,60,1)", "rgba(44,62,80,1)"],
+                    }]
+                };
+
+                var chartR = new Chart(posR, {
+                    type: 'pie',
+                    data: sumdata ,
+                    options: {
+                        legend: {
+                            display: false,
+                        }
+                    }
+                });
+
+                var chartR = new Chart(posB, {
+                    type: 'horizontalBar',
+                    data: data ,
+                    options: {
+                        legend: {
+                            display: true,
+                        },
+                        scales: {
+                            xAxes: [{
+                                gridLines: {
+                                    offsetGridLines: false
+                                },
+                                ticks: {
+                                    suggestedMax: Math.ceil(Math.max(...[Math.max(...arrApproved),Math.max(...arrDenied),Math.max(...arrPending)]) / 10 ) * 10
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+
+            function genTable(xml) {
+                var i, j;
+                var xmlDoc = xml.responseXML;
+                var x = xmlDoc.getElementsByTagName("row");
+
+                var colspan = x[0].childNodes.length - 1;
+                var query = "select * from someTable";
+
+                var table = "<thead id='stopper'><tr><td colspan=" + colspan + "><h1>" + query + "</h1></td></tr><tr>";
+
+
+
+                for (i = 1; i < x[0].childNodes.length-2; i += 2)
+                    table += "<th>" + x[0].childNodes[i].getAttribute("name") + "</th>"
+                table += "</tr></thead><tbody>";
+
+                for (i = 0; i < x.length; i+=2) {
+                    table += "<tr class='clickable-row, highlighter' data-toggle='modal' data-target='#myModal'>";
+                    for (j = 1; j < x[0].childNodes.length-2; j += 2) {
+                        table += "<td>";
+                        if (j == 3)
+                            table += "$";
+                        var elm = x[i].childNodes[j].childNodes[0];
+                        if (elm)
+                            table += elm.nodeValue;
+                        else
+                            table += "-";
+                        table += "</td>";
+                    }
+                    table += "</tr>";
+                }
+                table += "</tbody>";
+
+                document.getElementById("datatable").innerHTML = table;
+
+                setStopper();                
+            }
+            
+        </script>
+    </body>
+</html>

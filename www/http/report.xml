@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<resultset statement="call ers_db.generateReport()"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<row>
+		<field name="name">Alvin Whipp</field>
+		<field name="Pending">5</field>
+		<field name="Approved">2</field>
+		<field name="Denied">4</field>
+	</row>
+
+	<row>
+		<field name="name">Boot Gawith</field>
+		<field name="Pending">1</field>
+		<field name="Approved">2</field>
+		<field name="Denied">5</field>
+	</row>
+
+	<row>
+		<field name="name">Brendon Kment</field>
+		<field name="Pending">3</field>
+		<field name="Approved">2</field>
+		<field name="Denied">9</field>
+	</row>
+
+	<row>
+		<field name="name">Cory Winkelhake</field>
+		<field name="Pending">5</field>
+		<field name="Approved">7</field>
+		<field name="Denied">3</field>
+	</row>
+
+	<row>
+		<field name="name">Issy Dyneley</field>
+		<field name="Pending">3</field>
+		<field name="Approved">0</field>
+		<field name="Denied">5</field>
+	</row>
+
+	<row>
+		<field name="name">Jennifer Seel</field>
+		<field name="Pending">2</field>
+		<field name="Approved">1</field>
+		<field name="Denied">3</field>
+	</row>
+
+	<row>
+		<field name="name">Juliet Baughn</field>
+		<field name="Pending">5</field>
+		<field name="Approved">3</field>
+		<field name="Denied">2</field>
+	</row>
+
+	<row>
+		<field name="name">Kyle Kruskamp</field>
+		<field name="Pending">4</field>
+		<field name="Approved">3</field>
+		<field name="Denied">4</field>
+	</row>
+
+	<row>
+		<field name="name">Vince Mark</field>
+		<field name="Pending">9</field>
+		<field name="Approved">5</field>
+		<field name="Denied">3</field>
+	</row>
+</resultset>

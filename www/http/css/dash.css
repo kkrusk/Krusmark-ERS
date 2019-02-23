@@ -1,0 +1,87 @@
+:root {
+    --myblue: rgb(41,128,185);
+    --cyanide: rgb(52,152,219);
+    --cloudyblue: rgb(236,240,241);
+    --juicyorange: rgb(231,76,60);
+    --block: rgb(44,62,80);
+}
+
+.logo {
+    font-style: italic;
+    font-weight: bold;
+    background-color: var(--juicyorange);
+    color: white;
+    padding: 0.2rem 2rem;
+}
+
+a {
+    color: var(--cloudyblue);
+}
+
+.extrapadding {
+    padding-top: 3rem;
+}
+
+.cir-1 {
+    fill: var(--myblue);
+}
+
+.cir-2 {
+    fill: var(--juicyorange);
+}
+
+.cir-3 {
+    fill: var(--block);
+}
+
+.cir-4 {
+    fill: var(--cyanide);
+}
+
+.colormod a {
+    color: var(--cyanide);
+}
+
+.colormod a:hover {
+    color: var(--juicyorange);
+}
+
+code {
+    color: var(--juicyorange);
+}
+
+.doughnutstuffing{
+/*    background-image: url(../img/kmlogo.png);*/
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 55%;
+}
+
+.highlighter:hover {
+    box-sizing: border-box;
+    margin: 5px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: var(--block);
+    cursor: pointer;
+}
+
+body.modal-open .background-container{
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+    filter: url("https://gist.githubusercontent.com/amitabhaghosh197/b7865b409e835b5a43b5/raw/1a255b551091924971e7dee8935fd38a7fdf7311/blur".svg#blur);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='4');
+}
+
+#stopper {
+    background-color: white;
+}
+
+.navbar-fixed {
+    top: 3.5rem;
+    position: fixed;
+    width: 100%;
+}

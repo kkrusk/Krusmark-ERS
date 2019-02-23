@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link rel="icon" type="image/png" href="./img/favicon.ico" />
+
+        <title>Krusmark | Expense Reporting Management</title>
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" id="bootstrap-css">
+
+        <!-- Custom styles for this template -->
+        <link href="./css/style.css" rel="stylesheet">
+
+        <script type="text/javascript">
+            var start = 15.18;
+            function PlaySound(elm) { 
+                var s = document.getElementById(elm);
+                s.play();
+                s.currentTime = start;
+            }
+            function StopSound(elm) {
+                var s = document.getElementById(elm);
+                s.pause();
+                s.currentTime = start;
+            }
+        </script>
+    </head>
+
+    <body>
+        <form class="form-signin" action="login.js" method="post">
+            <div class="text-center mb-4">
+                <!--                <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">-->  
+                <!--                <img src="./img/brz.png" height="72">-->
+                <a href="main.html"><div class="logo mb-2" onmouseover="PlaySound('ballin')" onmouseout="StopSound('ballin')">KRUSMARK</div></a>
+                <h1 class="h4 mb-3 font-weight-normal">Expense Reimbursement System</h1>
+<!--                <p id="randquote">stuff should be here</p>-->
+<!--                <small class="text-muted">Sign in below</small>-->
+            </div>
+
+            <div class="form-label-group">
+                <input type="email" id="inputUser" class="form-control" placeholder="Email address" required autofocus>
+                <label for="inputEmail">Email address</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+            </div>
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-md btn-primary btn-block" type="submit">Sign in</button>
+            <p class="mt-5 mb-3 text-muted text-center small">&copy; Krusmark 2017-2018</p>
+        </form>
+
+        <!-- Audio Files -->
+        <!-- Ballin' -->
+        <!--        <audio id="ballin" preload="auto" style="display:none;" src="./resources/flyhigh.wav" loop></audio>-->
+
+        <!-- Ambient Loop -->
+        <!--        <audio id="bkgdmsc" style="display:none;" src="./resources/loop.wav" loop autoplay></audio>-->
+
+        <script>
+            document.getElementById("bkgdmsc").volume = 0.420;
+        </script>
+
+        <script>
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    randQuoteGen(this);
+                } 
+            };
+
+            xhttp.open("GET", "quotes.xml", true);  
+            xhttp.send();
+
+            function randQuoteGen(xml) {   
+                var x, i, txt, xmlDoc;  
+                
+                xmlDoc = xml.responseXML;
+                x = xmlDoc.getElementsByTagName("blockquote"); 
+                
+                i = Math.floor(Math.random() * x.length);
+                
+                txt = "<blockquote class='blockquote text-center' style='font-size: 0.8em;'><p class='mb-0'>";
+                txt += x[i].childNodes[1].childNodes[0].nodeValue; // quote
+                txt += "</p><footer class='blockquote-footer'>";
+                txt += x[i].childNodes[3].childNodes[0].nodeValue; // author
+                txt += "<cite title='Source Title'>\"";
+                txt += x[i].childNodes[5].childNodes[0].nodeValue; // source
+                txt += " (" + x[i].childNodes[7].childNodes[0].nodeValue + ")"; // year
+                txt += "</cite></footer></blockquote>";
+                
+                document.getElementById("randquote").innerHTML = txt;
+            }
+
+        </script>
+
+    </body>
+</html>
